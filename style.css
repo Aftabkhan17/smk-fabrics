@@ -1,0 +1,733 @@
+/* =============================================================
+   SMK FABRICS - PREMIUM SITE ARCHITECTURE & BRAND PALETTE
+   ============================================================= */
+:root {
+    --primary-green: #1a3a2a;      /* Deep Luxury Emerald */
+    --accent-gold: #b38f4f;        /* Elegant Gold Accent for Brands */
+    --alert-sale: #c9302c;         /* Crimson Red for Sale Tags */
+    --bg-light: #fafafa;           /* Soft White Backdrop */
+    --text-main: #111111;          /* Crisp Charcoal for Readability */
+    --text-muted: #666666;         /* Soft Gray for Subtitles */
+    --border-subtle: #eaeaea;      /* Minimalist Line Divider */
+    --shadow-premium: 0 15px 35px rgba(0, 0, 0, 0.04);
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-stack);
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 1. Announcement Banner */
+.announcement-bar {
+    background-color: var(--primary-green);
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.promo-code {
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+/* 2. Branded Sticky Header & Navigation */
+.main-header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 6%;
+    border-bottom: 1px solid var(--border-subtle);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--primary-green);
+    text-decoration: none;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.nav-menu ul li {
+    position: relative;
+    padding: 10px 15px;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.nav-menu ul li a:hover, 
+.nav-menu ul li a.active {
+    color: var(--accent-gold);
+}
+
+.arrow {
+    font-size: 0.6rem;
+    margin-left: 2px;
+    color: var(--text-muted);
+}
+
+/* Dropdown Menu Engine */
+.dropdown-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-premium);
+    width: 240px;
+    padding: 12px 0;
+    border-radius: 4px;
+}
+
+.dropdown-submenu li {
+    padding: 6px 24px;
+}
+
+.dropdown-submenu li a {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.dropdown:hover .dropdown-submenu {
+    display: block;
+}
+
+/* Utility Icons & Cart Badge */
+.header-utilities {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.utility-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.utility-icon:hover {
+    transform: scale(1.08);
+}
+
+.cart-icon-wrapper {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--primary-green);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: 50%;
+    padding: 2px 6px;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* 3. Hero Showcase Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
+                url('https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1600') center/cover no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-tagline {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 12px;
+    color: var(--accent-gold);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 28px auto;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 14px 38px;
+    background-color: #ffffff;
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: var(--primary-green);
+    color: #ffffff;
+}
+
+/* 4. Main Product Layout Showcase Grid */
+.catalog-container {
+    padding: 80px 6%;
+    background-color: var(--bg-light);
+}
+
+.section-title-wrapper {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title-wrapper h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.section-title-wrapper p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.fabric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+/* Modern Minimalist Product Cards */
+.product-card {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-premium);
+}
+
+.img-container {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.mill-brand {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.product-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-main);
+    line-height: 1.4;
+    margin-bottom: 14px;
+    height: 44px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-price {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.price-unit {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Custom Measurement Length Select Dropdowns */
+.fabric-length-selector {
+    margin-bottom: 20px;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 16px;
+}
+
+.fabric-length-selector label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.length-dropdown {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.btn-add-to-cart {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-green);
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    margin-top: auto;
+    transition: background-color 0.2s ease;
+}
+.btn-add-to-cart:hover {
+    background-color: #234f39;
+}
+
+/* =============================================================
+   5. SLIDE-OUT CART PANEL DRAWER DESIGN
+   ============================================================= */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+}
+.cart-drawer.active {
+    visibility: visible;
+}
+
+.cart-drawer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.cart-drawer.active .cart-drawer-overlay {
+    opacity: 1;
+}
+
+.cart-drawer-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 420px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.cart-drawer.active .cart-drawer-content {
+    transform: translateX(0);
+}
+
+.cart-drawer-header {
+    padding: 24px 30px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-drawer-header h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.btn-close-drawer {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.cart-drawer-body {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.cart-item-row {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    align-items: center;
+}
+.cart-item-info {
+    flex-grow: 1;
+}
+.cart-item-info h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.cart-item-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: var(--alert-sale);
+    cursor: pointer;
+    font-size: 0.75rem;
+    text-decoration: underline;
+}
+.cart-item-price {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--primary-green);
+}
+
+.empty-cart-msg {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 40px;
+}
+
+.cart-drawer-footer {
+    padding: 30px;
+    border-top: 1px solid var(--border-subtle);
+    background-color: #fcfcfc;
+}
+
+.coupon-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+#coupon-input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+#btn-apply-coupon {
+    padding: 0 20px;
+    background-color: var(--text-main);
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+.coupon-message {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+.coupon-success { color: #234f39; }
+.coupon-error { color: var(--alert-sale); }
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid var(--border-subtle);
+    margin-bottom: 16px;
+}
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+.discount-line {
+    color: var(--alert-sale);
+}
+.final-total-line {
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-top: 1px dashed var(--border-subtle);
+    padding-top: 14px;
+    margin-top: 8px;
+}
+.total-price-display {
+    color: var(--primary-green);
+}
+.tax-shipping-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+.btn-checkout:hover {
+    background-color: #234f39;
+}
+
+.hidden { display: none !important; }
+
+/* =============================================================
+   6. RESPONSIVE PHONE LAYOUT VIEWS (MEDIA QUERIES)
+   ============================================================= */
+.mobile-menu-toggle { 
+    display: none; 
+}
+
+@media (max-width: 768px) {
+    .main-header { 
+        padding: 16px 5%; 
+        justify-content: space-between;
+    }
+
+    .mobile-menu-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 1.4rem;
+        cursor: pointer;
+        color: var(--text-main);
+        order: 1;
+    }
+
+    .logo {
+        order: 2;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .header-utilities {
+        order: 3;
+        gap: 16px;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 15px 0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .nav-menu.mobile-active {
+        display: block !important;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-menu ul li {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-submenu {
+        position: relative;
+        top: 0;
+        box-shadow: none;
+        width: 100%;
+        background-color: #fefefe;
+        margin-top: 8px;
+    }
+
+    .hero-content h1 { font-size: 1.8rem; }
+    .hero-content p { font-size: 0.9rem; }
+    .catalog-container { padding: 50px 5%; }
+}
+/* =============================================================
+   7. FOOTER & INFORMATIONAL SECTIONS
+   ============================================================= */
+.info-section {
+    padding: 80px 6%;
+    background-color: #ffffff;
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+}
+.info-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.info-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--primary-green);
+}
+.info-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.main-footer {
+    background-color: var(--text-main);
+    color: #ffffff;
+    padding: 60px 6% 20px 6%;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.footer-brand h3 {
+    letter-spacing: 3px;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+}
+.footer-brand p {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+.footer-links h4, .footer-contact h4 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+.footer-links ul { list-style: none; }
+.footer-links ul li { margin-bottom: 10px; }
+.footer-links ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+.footer-links ul li a:hover { color: var(--accent-gold); }
+.footer-contact p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+/* =============================================================
+   8. DARK MODE (NIGHT THEME OVERRIDES)
+   ============================================================= */
+/* When .dark-mode is added to the body, these colors override the root variables */
+body.dark-mode {
+    --bg-light: #121212;
+    --text-main: #f5f5f5;
+    --text-muted: #aaaaaa;
+    --border-subtle: #333333;
+    background-color: #1a1a1a;
+}
+body.dark-mode .main-header,
+body.dark-mode .dropdown-submenu,
+body.dark-mode .product-card,
+body.dark-mode .cart-drawer-content,
+body.dark-mode .info-section {
+    background-color: #222222;
+    border-color: #333333;
+}
+body.dark-mode .length-dropdown,
+body.dark-mode #coupon-input {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    border-color: #444444;
+}
+body.dark-mode .cart-drawer-footer {
+    background-color: #1a1a1a;
+}
