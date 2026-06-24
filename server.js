@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 3000;
 // =============================================================
 // 🔥 1. PASTE YOUR MONGODB CONNECTION STRING HERE 🔥
 // =============================================================
-const MONGO_URI = "mongodb+srv://smkadmin:Smk11fabrics2026@cluster0.vhck7gz.mongodb.net/?appName=Cluster0";
-
+// Dynamically read the secret key injected by the cloud host configuration panel
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/smkfabrics";
 // Middleware
 app.use(express.json());
 app.use(express.static(__dirname));
@@ -63,7 +63,7 @@ seedDatabase();
 // 4. BACKEND REST API ENDPOINTS
 // =============================================================
 
-// Route: Fetch all products from the REAL database
+// Route Path: Fetch all products from the REAL database (Keep this!)
 app.get('/api/products', async (req, res) => {
     try {
         const products = await Product.find();
@@ -73,11 +73,28 @@ app.get('/api/products', async (req, res) => {
     }
 });
 
-// Root route to render your storefront
+// 🔥 NEW ROUTE: Intercept incoming POST data from the admin dashboard
+app.post('/api/products', async (req, res) => {
+    try {
+        const structuralEntry = new Product(req.body);
+        await structuralEntry.save();
+        res.status(201).json({ message: "Product safely documented in storage matrix" });
+    } catch (err) {
+        res.status(500).json({ message: "Internal Server database transaction failure" });
+    }
+});
+
+// 🔥 NEW ROUTE: Serve the physical Admin form dashboard view interface
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+// Root route to render your storefront (Keep this!)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Fire up the live local server engine (Keep this!)
 app.listen(PORT, () => {
     console.log(`\n================================================================`);
     console.log(`🚀 SMK FABRICS SERVER ACTIVE`);

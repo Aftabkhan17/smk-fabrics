@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK Fabrics | Control Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-wrapper { padding: 50px 6%; max-width: 650px; margin: 0 auto; }
+        .dashboard-card { background: #ffffff; padding: 40px; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-premium); }
+        .form-input-group { margin-bottom: 22px; }
+        .form-input-group label { display: block; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); margin-bottom: 8px; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #cccccc; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+        .form-control:focus { border-color: var(--primary-green); }
+        .btn-submit-inventory { width: 100%; padding: 16px; background-color: var(--primary-green); color: white; border: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background-color 0.2s; }
+        .btn-submit-inventory:hover { background-color: #234f39; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="/" class="logo">SMK CONTROL ROOM</a>
+        <a href="/" style="text-decoration: none; color: var(--primary-green); font-weight: 700; font-size: 0.9rem;">← View Showroom</a>
+    </header>
+
+    <main class="admin-wrapper">
+        <div class="dashboard-card">
+            <h2 style="margin-bottom: 25px; font-weight: 700; color: var(--primary-green); letter-spacing: 0.5px;">Add Premium Fabric Stock</h2>
+            <form id="inventory-entry-form">
+                <div class="form-input-group">
+                    <label>Unique System ID</label>
+                    <input type="text" id="inv-id" class="form-control" required placeholder="e.g., p7">
+                </div>
+                <div class="form-input-group">
+                    <label>Mill Brand</label>
+                    <input type="text" id="inv-brand" class="form-control" required placeholder="Raymond, Siyaram's, Arvind, etc.">
+                </div>
+                <div class="form-input-group">
+                    <label>Fabric Title Description</label>
+                    <input type="text" id="inv-title" class="form-control" required placeholder="e.g., Luxury Egyptian Giza Cotton Twill Weave">
+                </div>
+                <div class="form-input-group">
+                    <label>Base Price Per Meter (₹)</label>
+                    <input type="number" id="inv-price" class="form-control" required placeholder="1450">
+                </div>
+                <div class="form-input-group">
+                    <label>Stock Category</label>
+                    <select id="inv-category" class="form-control" style="border-radius: 0;">
+                        <option value="shirting">Premium Shirting</option>
+                        <option value="suiting">Luxury Suiting</option>
+                        <option value="combo">Unstitched Tailoring Combo</option>
+                    </select>
+                </div>
+                <div class="form-input-group">
+                    <label>High-Res Textural Image URL</label>
+                    <input type="url" id="inv-image" class="form-control" required placeholder="https://images.unsplash.com/...">
+                </div>
+                <button type="submit" class="btn-submit-inventory">Inject Item into Database Collection</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('inventory-entry-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            
+            const payload = {
+                id: document.getElementById('inv-id').value.trim(),
+                brand: document.getElementById('inv-brand').value.trim(),
+                title: document.getElementById('inv-title').value.trim(),
+                basePricePerMeter: parseFloat(document.getElementById('inv-price').value),
+                category: document.getElementById('inv-category').value,
+                image: document.getElementById('inv-image').value.trim()
+            };
+
+            fetch('/api/products', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if(response.ok) {
+                    alert('🎉 Success! Real-time item entry has been safely injected into your live MongoDB cloud cluster.');
+                    document.getElementById('inventory-entry-form').reset();
+                } else {
+                    alert('🔴 Inventory injection denied by server firewall validation checks.');
+                }
+            })
+            .catch(error => console.error("Admin post system failure:", error));
+        });
+    </script>
+</body>
+</html>
