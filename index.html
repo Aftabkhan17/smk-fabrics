@@ -3,158 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMK Fabrics | Premium Shirting & Suiting</title>
+    <title>SMK Fabrics | Premium Men's Unstitched Luxury Fabrics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="announcement-bar">
-        Use code <span class="promo-code">WELCOME5</span> for 5% off your first order | Free Shipping Pan-India!
+        <span>👑 PAN INDIA DELIVERY — FREE SHIPPING ON ALL ORDERS | USE CODE: <span class="promo-code">WELCOME5</span> FOR 5% OFF</span>
     </div>
 
-   <header class="main-header">
-        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
-
-        <a href="#" class="logo">SMK FABRICS</a>
+    <header class="main-header">
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         
-        <nav id="nav-links" class="nav-menu">
+        <a href="/" class="logo">SMK FABRICS</a>
+
+        <nav class="nav-menu" id="nav-links">
             <ul>
-                <li><a href="#" class="active">New Arrivals 🌟</a></li>
                 <li class="dropdown">
-                    <a href="#">Premium Shirting <span class="arrow">▼</span></a>
+                    <a href="#" class="active">Premium Shirting <i class="fa-solid fa-chevron-down arrow"></i></a>
                     <ul class="dropdown-submenu">
-                        <li><a href="#">Shop All Shirting</a></li>
-                        <li><a href="#">100% Giza & Supima Cotton</a></li>
-                        <li><a href="#">Pure European Linen</a></li>
-                        <li><a href="#">Wrinkle-Free Blends</a></li>
+                        <li><a href="#">100% Giza Cotton</a></li>
+                        <li><a href="#">Pure Luxury Linen</a></li>
+                        <li><a href="#">Supima Fine 2-Ply</a></li>
+                        <li><a href="#">Micro Dobby Solids</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#">Luxury Suiting <span class="arrow">▼</span></a>
+                    <a href="#">Luxury Suiting <i class="fa-solid fa-chevron-down arrow"></i></a>
                     <ul class="dropdown-submenu">
-                        <li><a href="#">Shop All Suiting</a></li>
-                        <li><a href="#">Terry Rayon (TR) Collection</a></li>
-                        <li><a href="#">Poly Viscose (PV) Stretch</a></li>
-                        <li><a href="#">Super 100s Wool Blends</a></li>
+                        <li><a href="#">Merino Wool Blends</a></li>
+                        <li><a href="#">Terry Rayon (TR) Poly</a></li>
+                        <li><a href="#">Pure Cashmere English Wool</a></li>
+                        <li><a href="#">Cotton Stretch Twills</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#">Shop By Brand <span class="arrow">▼</span></a>
+                    <a href="#">Gifting Combos <i class="fa-solid fa-chevron-down arrow"></i></a>
                     <ul class="dropdown-submenu">
-                        <li><a href="#">Raymond</a></li>
-                        <li><a href="#">Siyaram's</a></li>
-                        <li><a href="#">Arvind Tresca</a></li>
-                        <li><a href="#">J. Hampstead</a></li>
+                        <li><a href="#">Shirt + Trouser Premium Boxes</a></li>
+                        <li><a href="#">Wedding Luxury Gift Packs</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Unstitched Combos 🎁</a></li>
+                <li><a href="/admin">Admin Panel</a></li>
             </ul>
         </nav>
 
         <div class="header-utilities">
-            <span class="utility-icon" onclick="toggleDarkMode()">🌙</span>
-            <span class="utility-icon">🔍</span>
-            <span class="utility-icon">👤</span>
-            <div class="cart-icon-wrapper">
-                <span class="utility-icon" onclick="toggleCartDrawer()">🛒</span>
-                <span id="cart-badge" class="cart-badge">0</span>
+            <i class="fa-solid fa-magnifying-glass utility-icon"></i>
+            <i class="fa-solid fa-user utility-icon"></i>
+            <div class="cart-icon-wrapper" onclick="toggleCartDrawer()">
+                <i class="fa-solid fa-bag-shopping utility-icon"></i>
+                <span class="cart-badge" id="cart-badge">0</span>
             </div>
         </div>
     </header>
- 
+
     <section class="hero-section">
         <div class="hero-overlay">
-            <span class="hero-tagline">100% PURE LINEN & GIZA COTTON</span>
             <div class="hero-content">
-                <h1>Rich Fabrics | Soft | Elegant</h1>
-                <p>Pan India Delivery - FREE SHIPPING on ALL ORDERS!! Cash on Delivery (COD) available at checkout!</p>
-                <a href="#catalog" class="btn-primary">Shop Now</a>
+                <span class="hero-tagline">THE MENSWEAR LUXURY SHOWROOM</span>
+                <h1>Crafted Elegance, Tailored For You</h1>
+                <p>Browse genuine unstitched tailoring lengths from India's elite mills—including Raymond, Siyaram's, and Arvind.</p>
+                <a href="#catalog" class="btn-primary">Explore Fabrics</a>
             </div>
         </div>
     </section>
 
-    <main id="catalog" class="catalog-container">
+    <main class="catalog-container" id="catalog">
         <div class="section-title-wrapper">
-            <h2>Featured Premium Fabrics</h2>
-            <p>Sourced from world-class mills like Raymond, Siyaram's, and Arvind</p>
+            <h2>The Premium Fabric Catalog</h2>
+            <p>Select your custom tailoring length cut from our curated collections</p>
         </div>
 
-        <div id="dynamic-fabric-grid" class="fabric-grid"></div>
-    </main>
-    <section id="about" class="info-section">
-        <div class="info-content">
-            <h2>The SMK Heritage</h2>
-            <p>Founded on the principles of unparalleled craftsmanship, SMK Fabrics sources the finest yarns from global mills. Whether it is Super 120s Merino Wool or 100% Giza Cotton, we deliver sartorial excellence directly to your doorstep.</p>
+        <div class="brand-filters-container">
+            <div class="filter-label">Shop By Elite Mill:</div>
+            <div class="brand-filters-wrapper" id="brand-filters-wrapper">
+                </div>
         </div>
-    </section>
 
-    <footer class="main-footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>SMK FABRICS</h3>
-                <p>Premium unstitched menswear fabrics. Redefining bespoke luxury across India.</p>
+        <div class="fabric-grid" id="dynamic-fabric-grid">
             </div>
-            <div class="footer-links">
+    </main>
+
+    <footer class="premium-store-footer">
+        <div class="footer-grid-container">
+            
+            <div class="footer-column brand-story-col">
+                <h3>SMK FABRICS</h3>
+                <p class="footer-story-text">
+                    Carrying forward a profound legacy of trust and excellence in the textile industry. We specialize in sourcing and delivering 100% genuine, premium unstitched suiting, shirting, and luxury combo lengths from India's elite mills straight to your doorstep.
+                </p>
+                <div class="trust-badges-row">
+                    <span><i class="fa-solid fa-shield-halved"></i> 100% Genuine Mill Stock</span>
+                    <span><i class="fa-solid fa-truck-fast"></i> Free Pan-India Delivery</span>
+                </div>
+            </div>
+
+            <div class="footer-column">
                 <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#catalog">Shop Collection</a></li>
-                    <li><a href="#">Track Order</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                <ul class="footer-links-list">
+                    <li><a href="#">About Our Legacy</a></li>
+                    <li><a href="#">Contact Support Us</a></li>
+                    <li><a href="#">Track Order Shipment</a></li>
+                    <li><a href="#">Fabric Care & Washing Guide</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
                 </ul>
             </div>
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <p>Email: support@smkfabrics.com</p>
-                <p>Phone: +91 98765 43210</p>
-                <p>Mon - Sat, 10:00 AM to 7:00 PM</p>
+
+            <div class="footer-column">
+                <h4>Customer Care</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#">Privacy Policy Rules</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Shipping & Delivery Timelines</a></li>
+                    <li><a href="#">Cancellation & Return Policy</a></li>
+                    <li><a href="#">Refund Information</a></li>
+                </ul>
             </div>
+
+            <div class="footer-column engagement-col">
+                <h4>Join Our Community</h4>
+                <p class="social-prompt-text">Follow our digital showroom on Instagram for daily tailoring style inspiration and seasonal collections.</p>
+                <a href="#" class="btn-footer-social"><i class="fa-brands fa-instagram"></i> Follow on Instagram</a>
+            </div>
+
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SMK Fabrics. All Rights Reserved.</p>
+
+        <div class="footer-baseline-bar">
+            <p class="copyright-text">&copy; 2026, SMKFabrics.in. All Rights Reserved. Custom Full-Stack Architecture Engine.</p>
+            <div class="payment-icons-gateway">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-amex"></i>
+                <i class="fa-solid fa-credit-card"></i>
+                <span class="cod-pill-badge">COD Available</span>
+            </div>
         </div>
     </footer>
-
-    <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer" id="cart-drawer">
         <div class="cart-drawer-overlay" onclick="toggleCartDrawer()"></div>
-        
         <div class="cart-drawer-content">
             <div class="cart-drawer-header">
-                <h2>Your Shopping Cart</h2>
-                <button class="btn-close-drawer" onclick="toggleCartDrawer()">✕</button>
+                <h2>Your Shopping Bag</h2>
+                <button class="btn-close-drawer" onclick="toggleCartDrawer()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
             
-            <div id="cart-items-container" class="cart-drawer-body">
-                <p class="empty-cart-msg">Your cart is currently empty.</p>
-            </div>
+            <div class="cart-drawer-body" id="cart-items-container">
+                </div>
 
             <div class="cart-drawer-footer">
                 <div class="coupon-section">
-                    <input type="text" id="coupon-input" placeholder="Promo code? (Try: WELCOME5)" />
+                    <input type="text" id="coupon-input" placeholder="ENTER COUPON CODE" autocomplete="off">
                     <button id="btn-apply-coupon" onclick="applyDiscountCode()">Apply</button>
                 </div>
                 <div id="coupon-message" class="coupon-message"></div>
 
-                <hr class="footer-divider" />
-
+                <hr class="footer-divider">
+                
                 <div class="summary-line">
-                    <span>Subtotal:</span>
-                    <span>₹ <span id="cart-subtotal-amount">0.00</span></span>
+                    <span>Cart Subtotal</span>
+                    <span>₹<span id="cart-subtotal-amount">0.00</span></span>
                 </div>
                 <div class="summary-line discount-line hidden" id="discount-row">
-                    <span>Discount (<span id="applied-code-name"></span>):</span>
-                    <span>- ₹ <span id="cart-discount-amount">0.00</span></span>
+                    <span>Promo Markdown (<span id="applied-code-name">-</span>)</span>
+                    <span>- ₹<span id="cart-discount-amount">0.00</span></span>
                 </div>
                 <div class="summary-line final-total-line">
-                    <span>Estimated Total:</span>
-                    <span class="total-price-display">₹ <span id="cart-total-amount">0.00</span></span>
+                    <span>Estimated Total</span>
+                    <span class="total-price-display">₹<span id="cart-total-amount">0.00</span></span>
                 </div>
-                <p class="tax-shipping-note">Taxes included. FREE Shipping applied across India 🚀</p>
-                <button class="btn-checkout" onclick="processCheckoutAlert()">Proceed To Secure Checkout</button>
+                <p class="tax-shipping-note">GST taxes included. Free shipping applied across India.</p>
+                <button class="btn-checkout" onclick="processCheckoutAlert()">Proceed To Checkout</button>
             </div>
         </div>
     </div>
 
     <script src="app.js"></script>
 </body>
-</html>>
+</html>

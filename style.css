@@ -1,24 +1,37 @@
-/* =============================================================
-   SMK FABRICS - PREMIUM SITE ARCHITECTURE & BRAND PALETTE
-   ============================================================= */
+/* ==========================================================================
+   1. CORE ARCHITECTURE RESET & BRANDED SYSTEM DESIGN VARIABLES
+   ========================================================================== */
 :root {
-    --primary-green: #1a3a2a;      /* Deep Luxury Emerald */
-    --accent-gold: #b38f4f;        /* Elegant Gold Accent for Brands */
-    --alert-sale: #c9302c;         /* Crimson Red for Sale Tags */
-    --bg-light: #fafafa;           /* Soft White Backdrop */
-    --text-main: #111111;          /* Crisp Charcoal for Readability */
-    --text-muted: #666666;         /* Soft Gray for Subtitles */
-    --border-subtle: #eaeaea;      /* Minimalist Line Divider */
-    --shadow-premium: 0 15px 35px rgba(0, 0, 0, 0.04);
-    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* Premium Luxury Menswear Palette */
+    --primary-green: #112d1e;    /* Rich English Lodge Forest Green */
+    --accent-gold: #b38f4f;      /* Burnished Antique Brass/Gold Accent */
+    --accent-gold-hover: #96743b;
+    --alert-sale: #9e2a2b;       /* Crisp Deep Crimson for Reductions */
+    
+    /* Neutral Tone Foundations */
+    --text-main: #1f1f1f;        /* High-contrast charcoal dominant black */
+    --text-muted: #666666;       /* Mid-tone slate gray for metrics/labels */
+    --bg-light: #fbfbf9;         /* Warm Ivory/Off-White canvas */
+    --border-subtle: #e5e5df;    /* Clean tailored structural divider line */
+    
+    /* Typography Matrix */
+    --font-heading: 'Marcellus', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    /* Luxury Micro-Interactions Shadow Curves */
+    --shadow-premium: 0 15px 40px rgba(17, 45, 30, 0.06);
+    --shadow-drawer: -10px 0 40px rgba(0, 0, 0, 0.08);
 }
 
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-stack);
+    font-family: var(--font-body);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -28,60 +41,68 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 1. Announcement Banner */
+/* ==========================================================================
+   2. HIGH-CONVERSION HEADER & PROMO RAIL ARCHITECTURES
+   ========================================================================== */
 .announcement-bar {
     background-color: var(--primary-green);
     color: #ffffff;
     text-align: center;
     padding: 12px 20px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 .promo-code {
     color: var(--accent-gold);
     font-weight: 700;
 }
 
-/* 2. Branded Sticky Header & Navigation */
 .main-header {
     background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 22px 6%;
+    padding: 24px 6%;
     border-bottom: 1px solid var(--border-subtle);
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.01);
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
     font-weight: 800;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     color: var(--primary-green);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+/* Elite Nav Menus & Dropdown Frameworks */
 .nav-menu ul {
     display: flex;
     list-style: none;
-    gap: 10px;
+    gap: 15px;
 }
 
 .nav-menu ul li {
     position: relative;
-    padding: 10px 15px;
+    padding: 10px 18px;
 }
 
 .nav-menu ul li a {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 500;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     transition: color 0.2s ease;
 }
 
@@ -91,12 +112,18 @@ body {
 }
 
 .arrow {
-    font-size: 0.6rem;
-    margin-left: 2px;
+    font-size: 0.65rem;
+    margin-left: 3px;
     color: var(--text-muted);
+    transition: transform 0.2s ease;
 }
 
-/* Dropdown Menu Engine */
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+    color: var(--accent-gold);
+}
+
+/* Nested Dropdown Submenu Window Nodes */
 .dropdown-submenu {
     display: none;
     position: absolute;
@@ -105,38 +132,50 @@ body {
     background: #ffffff;
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-premium);
-    width: 240px;
-    padding: 12px 0;
-    border-radius: 4px;
+    width: 250px;
+    padding: 14px 0;
+    border-radius: 2px;
 }
 
 .dropdown-submenu li {
     padding: 6px 24px;
+    width: 100%;
 }
 
 .dropdown-submenu li a {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
+    text-transform: none;
+    letter-spacing: 0.5px;
+    display: block;
+}
+
+.dropdown-submenu li a:hover {
+    color: var(--primary-green);
+    transform: translateX(3px);
 }
 
 .dropdown:hover .dropdown-submenu {
     display: block;
 }
 
-/* Utility Icons & Cart Badge */
+/* Header Utilities & Action Badges */
 .header-utilities {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 26px;
 }
 
 .utility-icon {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    color: var(--text-main);
+    transition: transform 0.2s ease, color 0.2s ease;
 }
+
 .utility-icon:hover {
-    transform: scale(1.08);
+    transform: scale(1.1);
+    color: var(--accent-gold);
 }
 
 .cart-icon-wrapper {
@@ -148,72 +187,122 @@ body {
     top: -8px;
     right: -10px;
     background-color: var(--primary-green);
-    color: white;
+    color: #ffffff;
     font-size: 0.65rem;
     font-weight: 700;
     border-radius: 50%;
     padding: 2px 6px;
     min-width: 18px;
     text-align: center;
+    border: 1px solid #ffffff;
 }
 
-/* 3. Hero Showcase Section */
+/* ==========================================================================
+   3. IMMERSIVE BRAND HERO BACKGROUND BACKDROP
+   ========================================================================== */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
-                url('https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1600') center/cover no-repeat;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+            url('images/smkfabrics1.webp') center/cover no-repeat;
+             /* Takes up the whole screen height */
+            width: 100%;
+            height: 600px;
+            display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers items vertically */
+    align-items: center;     /* Centers items horizontally */
+    text-align: center;      /* Centers the text lines */
+    padding: 0 20px;         /* Adds padding so text doesn't touch the edges */
+    .hero-section h1 {
+    font-size: 3rem; /* Adjust to your liking */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Gives the heading crisp contrast */
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 800px; /* Keeps the text block from stretching too wide */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+.explore-btn {
+    background-color: #ffffff;
+    color: #111111; /* Dark text color inside the white button */
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px; /* Smooths out the sharp corners slightly */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Lifts the button off the background */
+    transition: all 0.3s ease;
+}
+
+/* Adds an elegant hover effect */
+.explore-btn:hover {
+    background-color: #1a3c34; /* Dark brand green or accent color on hover */
+    color: #ffffff;
+    transform: translateY(-2px); /* Moves up slightly when hovered */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
 }
 
 .hero-overlay {
     text-align: center;
     color: #ffffff;
+    padding: 0 20px;
 }
 
 .hero-tagline {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     display: block;
-    margin-bottom: 12px;
-    color: var(--accent-gold);
+    margin-bottom: 14px;
+    color: rgb(211, 211, 64);
+    text-transform: uppercase;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: 1px;
+    font-family: var(--font-heading);
+    font-size: 3.4rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
 }
 
 .hero-content p {
     font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 28px auto;
+    max-width: 650px;
+    margin: 0 auto 32px auto;
     font-weight: 300;
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 14px 38px;
+    padding: 14px 40px;
     background-color: #ffffff;
     color: var(--primary-green);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     transition: all 0.3s ease;
+    border-radius: 2px;
 }
+
 .btn-primary:hover {
     background-color: var(--primary-green);
     color: #ffffff;
+    box-shadow: 0 10px 20px rgba(17, 45, 30, 0.2);
 }
 
-/* 4. Main Product Layout Showcase Grid */
+/* ==========================================================================
+   4. CATALOG CORE CONTROLLERS & DYNAMIC FILTER CHIPS
+   ========================================================================== */
 .catalog-container {
     padding: 80px 6%;
     background-color: var(--bg-light);
@@ -221,54 +310,181 @@ body {
 
 .section-title-wrapper {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .section-title-wrapper h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--primary-green);
     margin-bottom: 12px;
+    letter-spacing: 1px;
 }
 
 .section-title-wrapper p {
     color: var(--text-muted);
     font-size: 1rem;
+    font-weight: 400;
 }
 
+/* Brand Filtering Layout Switch Bar */
+.brand-filters-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 25px;
+}
+
+.filter-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-main);
+}
+
+.brand-filters-wrapper {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-chip-tab {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    padding: 10px 24px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 0px;
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+}
+
+.filter-chip-tab:hover {
+    border-color: var(--primary-green);
+    color: var(--primary-green);
+}
+
+.filter-chip-tab.active {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(17, 45, 30, 0.15);
+}
+
+/* ==========================================================================
+   5. MENSWEAR GRID PANELS & MULTI-IMAGE CAROUSELS
+   ========================================================================== */
 .fabric-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
 }
 
-/* Modern Minimalist Product Cards */
 .product-card {
     background: #ffffff;
     border: 1px solid var(--border-subtle);
     position: relative;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
 .product-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-premium);
 }
 
+/* Local Immersive Slider Windows */
 .img-container {
     width: 100%;
-    height: 360px;
+    height: 380px;
+    position: relative;
     overflow: hidden;
-    background-color: #f5f5f5;
+    background-color: #f7f7f5;
 }
 
-.img-container img {
+.brand-badge-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background-color: var(--primary-green);
+    color: #ffffff;
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.slides-wrapper-window {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    z-index: 1;
 }
 
+.slide-img.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Slider Pagination Indicator Navigation Dots */
+.slider-dot-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 5px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.slide-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: rgba(17, 45, 30, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.slide-dot:hover {
+    background-color: var(--primary-green);
+}
+
+.slide-dot.active {
+    background-color: var(--primary-green);
+    width: 18px;
+    border-radius: 4px;
+}
+
+/* Dynamic Content Areas inside Tiles */
 .product-details {
     padding: 24px;
     display: flex;
@@ -276,50 +492,58 @@ body {
     flex-grow: 1;
 }
 
-.mill-brand {
+.technical-specs-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 10px;
     font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-gold);
     text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+    letter-spacing: 0.5px;
 }
 
 .product-title {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 500;
     color: var(--text-main);
-    line-height: 1.4;
-    margin-bottom: 14px;
-    height: 44px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+    height: 46px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.product-price {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--primary-green);
-    margin-bottom: 20px;
+.pricing-calculator-block {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
 }
 
-.price-unit {
-    font-size: 0.85rem;
+.calculated-output-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.unit-identifier-tag {
+    font-size: 0.8rem;
     color: var(--text-muted);
     font-weight: 400;
 }
 
-/* Custom Measurement Length Select Dropdowns */
+/* Metric Length Dropdown Selectors */
 .fabric-length-selector {
-    margin-bottom: 20px;
-    border-top: 1px solid var(--border-subtle);
+    margin-bottom: 22px;
+    border-top: 1px dashed var(--border-subtle);
     padding-top: 16px;
 }
 
 .fabric-length-selector label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -331,35 +555,46 @@ body {
 .length-dropdown {
     width: 100%;
     padding: 12px;
-    font-size: 0.9rem;
-    border: 1px solid #cccccc;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #dcdcd6;
     background-color: #ffffff;
     outline: none;
     cursor: pointer;
     border-radius: 0;
+    color: var(--text-main);
+    transition: border-color 0.2s ease;
+}
+
+.length-dropdown:focus {
+    border-color: var(--primary-green);
 }
 
 .btn-add-to-cart {
     width: 100%;
-    padding: 15px;
+    padding: 16px;
     background-color: var(--primary-green);
-    color: white;
+    color: #ffffff;
     font-weight: 600;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 1.5px;
-    margin-top: auto;
-    transition: background-color 0.2s ease;
-}
-.btn-add-to-cart:hover {
-    background-color: #234f39;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-/* =============================================================
-   5. SLIDE-OUT CART PANEL DRAWER DESIGN
-   ============================================================= */
+.btn-add-to-cart:hover {
+    background-color: #1c442e;
+}
+
+.btn-add-to-cart:active {
+    transform: scale(0.99);
+}
+
+/* ==========================================================================
+   6. INTERACTIVE CHECKOUT SYSTEM (SLIDE-OUT CART PANEL)
+   ========================================================================== */
 .cart-drawer {
     position: fixed;
     top: 0;
@@ -370,6 +605,7 @@ body {
     visibility: hidden;
     transition: visibility 0.3s ease;
 }
+
 .cart-drawer.active {
     visibility: visible;
 }
@@ -380,10 +616,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(17, 45, 30, 0.4);
     opacity: 0;
+    backdrop-filter: blur(2px);
     transition: opacity 0.3s ease;
 }
+
 .cart-drawer.active .cart-drawer-overlay {
     opacity: 1;
 }
@@ -393,15 +631,16 @@ body {
     top: 0;
     right: 0;
     width: 100%;
-    max-width: 420px;
+    max-width: 440px;
     height: 100%;
     background: #ffffff;
-    box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow-drawer);
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
 .cart-drawer.active .cart-drawer-content {
     transform: translateX(0);
 }
@@ -413,17 +652,26 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .cart-drawer-header h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--primary-green);
     letter-spacing: 0.5px;
 }
+
 .btn-close-drawer {
     background: none;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     color: var(--text-main);
+    transition: color 0.2s ease;
+}
+
+.btn-close-drawer:hover {
+    color: var(--alert-sale);
 }
 
 .cart-drawer-body {
@@ -432,27 +680,35 @@ body {
     overflow-y: auto;
 }
 
+/* Individual Cart Order Items */
 .cart-item-row {
     display: flex;
-    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: 1px solid var(--border-subtle);
-    align-items: center;
 }
+
 .cart-item-info {
     flex-grow: 1;
+    padding-right: 15px;
 }
+
 .cart-item-info h4 {
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 4px;
+    color: var(--text-main);
+    line-height: 1.4;
 }
+
 .cart-item-meta {
     font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
+
 .btn-remove-item {
     background: none;
     border: none;
@@ -460,9 +716,11 @@ body {
     cursor: pointer;
     font-size: 0.75rem;
     text-decoration: underline;
+    font-weight: 500;
 }
+
 .cart-item-price {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95rem;
     color: var(--primary-green);
 }
@@ -470,13 +728,16 @@ body {
 .empty-cart-msg {
     text-align: center;
     color: var(--text-muted);
-    margin-top: 40px;
+    margin-top: 60px;
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
+/* Cart Computational Footer Controls */
 .cart-drawer-footer {
     padding: 30px;
     border-top: 1px solid var(--border-subtle);
-    background-color: #fcfcfc;
+    background-color: #fcfcfb;
 }
 
 .coupon-section {
@@ -484,6 +745,7 @@ body {
     gap: 10px;
     margin-bottom: 16px;
 }
+
 #coupon-input {
     flex-grow: 1;
     padding: 12px;
@@ -491,21 +753,37 @@ body {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 0.85rem;
+    outline: none;
+    border-radius: 0;
 }
+
+#coupon-input:focus {
+    border-color: var(--primary-green);
+}
+
 #btn-apply-coupon {
-    padding: 0 20px;
+    padding: 0 24px;
     background-color: var(--text-main);
-    color: white;
+    color: #ffffff;
     border: none;
     font-weight: 600;
     font-size: 0.85rem;
     cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease;
 }
+
+#btn-apply-coupon:hover {
+    background-color: var(--primary-green);
+}
+
 .coupon-message {
     font-size: 0.8rem;
     margin-bottom: 16px;
-    font-weight: 500;
+    font-weight: 600;
 }
+
 .coupon-success { color: #234f39; }
 .coupon-error { color: var(--alert-sale); }
 
@@ -514,83 +792,95 @@ body {
     border-top: 1px solid var(--border-subtle);
     margin-bottom: 16px;
 }
+
 .summary-line {
     display: flex;
     justify-content: space-between;
     font-size: 0.95rem;
     margin-bottom: 10px;
+    color: var(--text-muted);
 }
+
 .discount-line {
     color: var(--alert-sale);
+    font-weight: 600;
 }
+
 .final-total-line {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 700;
     border-top: 1px dashed var(--border-subtle);
     padding-top: 14px;
     margin-top: 8px;
+    color: var(--text-main);
 }
+
 .total-price-display {
     color: var(--primary-green);
 }
+
 .tax-shipping-note {
     font-size: 0.75rem;
     color: var(--text-muted);
     margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .btn-checkout {
     width: 100%;
-    padding: 16px;
+    padding: 18px;
     background-color: var(--primary-green);
-    color: white;
+    color: #ffffff;
     border: none;
     font-weight: 700;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     font-size: 0.85rem;
 }
+
 .btn-checkout:hover {
-    background-color: #234f39;
+    background-color: #1c442e;
 }
 
-.hidden { display: none !important; }
+.hidden {
+    display: none !important;
+}
 
-/* =============================================================
-   6. RESPONSIVE PHONE LAYOUT VIEWS (MEDIA QUERIES)
-   ============================================================= */
-.mobile-menu-toggle { 
-    display: none; 
+/* ==========================================================================
+   7. RESPONSIVE PHONE SHOWROOM PORT INTERFACES (MEDIA QUERIES)
+   ========================================================================== */
+.mobile-menu-toggle {
+    display: none;
 }
 
 @media (max-width: 768px) {
-    .main-header { 
-        padding: 16px 5%; 
-        justify-content: space-between;
+    .main-header {
+        padding: 16px 5%;
     }
-
+    
     .mobile-menu-toggle {
         display: block !important;
         background: none;
         border: none;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         cursor: pointer;
         color: var(--text-main);
         order: 1;
     }
-
+    
     .logo {
         order: 2;
-        font-size: 1.2rem;
-        letter-spacing: 2px;
+        font-size: 1.25rem;
+        letter-spacing: 3px;
     }
-
+    
     .header-utilities {
         order: 3;
         gap: 16px;
     }
-
+    
+    /* Responsive Collapsible Hamburger Navigation Overlay */
     .nav-menu {
         display: none;
         position: absolute;
@@ -599,135 +889,279 @@ body {
         width: 100%;
         background-color: #ffffff;
         border-bottom: 1px solid var(--border-subtle);
-        padding: 15px 0;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding: 20px 0;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
     }
-
+    
     .nav-menu.mobile-active {
         display: block !important;
     }
-
+    
     .nav-menu ul {
         flex-direction: column;
         align-items: center;
         width: 100%;
+        gap: 5px;
     }
-
+    
     .nav-menu ul li {
-        padding: 10px 0;
+        padding: 12px 0;
         width: 100%;
         text-align: center;
     }
-
+    
     .dropdown-submenu {
         position: relative;
         top: 0;
         box-shadow: none;
         width: 100%;
-        background-color: #fefefe;
-        margin-top: 8px;
+        background-color: #fafaf8;
+        margin-top: 10px;
+        border-left: none;
+        border-right: none;
     }
-
-    .hero-content h1 { font-size: 1.8rem; }
-    .hero-content p { font-size: 0.9rem; }
-    .catalog-container { padding: 50px 5%; }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    
+    .brand-filters-container {
+        flex-direction: column;
+        gap: 14px;
+    }
+    
+    .catalog-container {
+        padding: 50px 5%;
+    }
+    
+    .img-container {
+        height: 340px;
+    }
 }
-/* =============================================================
-   7. FOOTER & INFORMATIONAL SECTIONS
+/* ============================================================= 
+   7. LUXURY MENSWEAR SHOWROOM FOOTER ENGINE STYLING 
    ============================================================= */
-.info-section {
-    padding: 80px 6%;
-    background-color: #ffffff;
-    text-align: center;
+.premium-store-footer {
+    background-color: #11241a; /* Deep luxury charcoal-emerald shadow tone mapping */
+    color: #e5e5e5;
+    padding: 80px 6% 30px 6%;
     border-top: 1px solid var(--border-subtle);
-}
-.info-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-.info-content h2 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: var(--primary-green);
-}
-.info-content p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.8;
+    font-family: var(--font-stack);
 }
 
-.main-footer {
-    background-color: var(--text-main);
-    color: #ffffff;
-    padding: 60px 6% 20px 6%;
-}
-.footer-grid {
+.footer-grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 50px;
+    margin-bottom: 60px;
 }
-.footer-brand h3 {
+
+.footer-column h3 {
+    font-family: 'Marcellus', serif;
+    font-size: 1.6rem;
     letter-spacing: 3px;
     color: var(--accent-gold);
-    margin-bottom: 15px;
-}
-.footer-brand p {
-    color: #cccccc;
-    font-size: 0.9rem;
-}
-.footer-links h4, .footer-contact h4 {
     margin-bottom: 20px;
-    font-size: 1.1rem;
-    color: #ffffff;
-}
-.footer-links ul { list-style: none; }
-.footer-links ul li { margin-bottom: 10px; }
-.footer-links ul li a {
-    color: #cccccc;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-.footer-links ul li a:hover { color: var(--accent-gold); }
-.footer-contact p {
-    color: #cccccc;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid #333333;
-    font-size: 0.8rem;
-    color: #888888;
 }
 
-/* =============================================================
-   8. DARK MODE (NIGHT THEME OVERRIDES)
+.footer-column h4 {
+    font-family: 'Marcellus', serif;
+    font-size: 1.05rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.footer-story-text, .social-prompt-text {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #b0c2b7;
+    margin-bottom: 24px;
+}
+
+.trust-badges-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.trust-badges-row span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links-list li a {
+    text-decoration: none;
+    color: #b0c2b7;
+    font-size: 0.88rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-block;
+}
+
+.footer-links-list li a:hover {
+    color: var(--accent-gold);
+    padding-left: 4px;
+}
+
+.btn-footer-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-footer-social:hover {
+    background-color: var(--accent-gold);
+    color: #11241a;
+}
+
+/* Footer Bottom Baseline Bar Layout */
+.footer-baseline-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.copyright-text {
+    font-size: 0.8rem;
+    color: #8fa397;
+}
+
+.payment-icons-gateway {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 1.5rem;
+    color: #8fa397;
+}
+
+.cod-pill-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgba(217, 83, 79, 0.15);
+    color: #d9534f;
+    padding: 4px 10px;
+    border: 1px solid rgba(217, 83, 79, 0.3);
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Footer Controls for Mobile Screens */
+@media (max-width: 992px) {
+    .footer-grid-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-grid-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .footer-baseline-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* ============================================================= 
+   8. LUXURY PRODUCT MULTI-IMAGE CAROUSEL DECK STYLING 
    ============================================================= */
-/* When .dark-mode is added to the body, these colors override the root variables */
-body.dark-mode {
-    --bg-light: #121212;
-    --text-main: #f5f5f5;
-    --text-muted: #aaaaaa;
-    --border-subtle: #333333;
-    background-color: #1a1a1a;
+.slides-wrapper-window {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
-body.dark-mode .main-header,
-body.dark-mode .dropdown-submenu,
-body.dark-mode .product-card,
-body.dark-mode .cart-drawer-content,
-body.dark-mode .info-section {
-    background-color: #222222;
-    border-color: #333333;
+
+/* Stacks all images on top of each other and hides inactive states completely */
+.slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-body.dark-mode .length-dropdown,
-body.dark-mode #coupon-input {
-    background-color: #1a1a1a;
-    color: #f5f5f5;
-    border-color: #444444;
+
+/* Transitions the active choice into view with a smooth cross-fade animation */
+.slide-img.active {
+    opacity: 1;
+    pointer-events: auto;
 }
-body.dark-mode .cart-drawer-footer {
-    background-color: #1a1a1a;
+
+/* Floating Dot Slider Controls Container */
+.slider-dot-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 15;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 6px 12px;
+    border-radius: 30px;
+    backdrop-filter: blur(4px); /* Modern frosted-glass effect */
+}
+
+/* Individual Slider Button Trackers */
+.slide-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Highlight state for active slide tracking */
+.slide-dot.active {
+    background-color: var(--accent-gold);
+    transform: scale(1.25);
+    box-shadow: 0 0 8px var(--accent-gold);
+}
+
+/* Extra technical metadata styling for luxury fabrics */
+.technical-specs-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
 }
